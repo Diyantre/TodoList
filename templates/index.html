@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+            <title>To Do List</title>
+    </head>
+    <body>
+        <h1>To Do List</h1>
+        <form action="{{ url_for('save_todos') }}" method="POST">
+            <input type="text" name="add" placeholder="Add todos" required>
+            <input type="text" name="desc" placeholder="Description" required>
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+        </form>
+        <br>
+        {% for todo in todos|reverse %}
+        <div>
+            <li>
+                <input type="checkbox" id="checkbox">
+                {{ todo[1]}} : {{ todo[2] }} 
+            </li> <br>               
+            <button type="submit"><a href="{{ url_for('delete_todos', id=todo[0])}}">Supprimer</a></button>
+        </div>
+        {% endfor %}
+    </body>
+</html>
