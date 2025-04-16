@@ -11,6 +11,8 @@ body {
     color: #14532D;
     background-color: black;
     background-image: url(fond.png);
+    background-repeat:no-repeat;
+    background-size: cover;
     border: solid  ;
     backdrop-filter: blur(5px);
 
